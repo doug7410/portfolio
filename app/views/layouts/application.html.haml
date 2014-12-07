@@ -1,0 +1,47 @@
+%html.no-js{:lang => "en-US"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title Doug Steinberg - Ruby on Rails Developer
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    %link{:href => "css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "css/font-awesome.css", :rel => "stylesheet"}/
+    %link{:href => "css/flexslider.css", :rel => "stylesheet"}/
+    %link{:href => "css/meflat-blue.css", :rel => "stylesheet"}/
+    /
+      \==============================================
+      Fonts
+      \===============================================
+    %link{:href => "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Titillium+Web:400,300,300italic,200,400italic,600,600italic", :rel => "stylesheet", :type => "text/css"}/
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    /[if lt IE 9]
+      <script src="js/respond.min.js"></script>
+    %script{:src => "js/libs/modernizr.min.js", :type => "text/javascript"}
+    = csrf_meta_tags
+  %body{"data-offset" => "400", "data-spy" => "scroll", "data-target" => "#main-nav"}
+    = render 'layouts/main_nav'
+    = yield
+    =render 'layouts/footer'
+    
+    
+    
+    /
+      \==============================================
+      SCRIPTS
+      \===============================================
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    :javascript
+      window.jQuery || document.write('<script src="js/libs/jquery-1.9.1.min.js">\x3C/script>')
+    %script{:src => "js/libs/bootstrap.min.js"}
+    %script{:src => "js/jquery.easing.1.3.min.js"}
+    %script{:src => "js/jquery.scrollto.js"}
+    %script{:src => "js/jquery.fittext.js"}
+    %script{:src => "js/jquery.flexslider.min.js"}
+    %script{:src => "js/jquery.masonry.js"}
+    %script{:src => "js/waypoints.min.js"}
+    %script{:src => "js/jquery.label_better.min.js"}
+    %script{:src => "js/jquery.easypiechart.js"}
+    %script{:src => "js/contact.js"}
+    %script{:src => "js/meflat.js"}

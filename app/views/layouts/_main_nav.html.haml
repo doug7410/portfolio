@@ -1,0 +1,24 @@
+#main-nav.navbar.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#site-nav", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      / ======= LOGO (for small screens)========
+      %a.navbar-brand.visible-xs.scrollto{:href => "#home"} Ds
+    #site-nav.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li
+          %a.scrollto{:href => "#services"} What I Do
+        %li
+          %a.scrollto{:href => "#about"} About Me
+        %li#logo
+          %a.scrollto{:href => "#home"}
+            %h1
+              J
+              %span D
+        %li
+          %a.scrollto{:href => "#portfolio"} My Works
+        %li
+          %a.scrollto{:href => "#contact"} Contact Me

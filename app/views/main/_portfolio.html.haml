@@ -1,0 +1,22 @@
+%section#portfolio.gray-bg.padding-top-bottom
+  .container
+    %header.section-header.text-center
+      %h1.scrollimation.scale-in My Works
+      %p
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        %br/
+        Aenean purus felis, condimentum et tempor in, commodo id nibh. Fusce a lacus arcu.
+    / ==== Portfolio Filters ====
+    #filter-works
+      %ul
+        %li.active.scrollimation.fade-right.d1
+          %a{"data-filter" => "*", :href => "#"} All
+        %li.scrollimation.fade-right
+          %a{"data-filter" => ".web-design", :href => "#"} Web Design
+        %li.scrollimation.fade-left
+          %a{"data-filter" => ".icons", :href => "#"} Icons
+        %li.scrollimation.fade-left.d1
+          %a{"data-filter" => ".ui-kits", :href => "#"} UI Kits
+  .container.masonry-wrapper.scrollimation.fade-in
+    #projects-container
+      =render 'projects'        
