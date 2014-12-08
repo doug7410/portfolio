@@ -1,3 +1,7 @@
+/
+  \==============================================
+  PORTFOLIO
+  \===============================================
 %section#portfolio.gray-bg.padding-top-bottom
   .container
     %header.section-header.text-center
@@ -17,6 +21,6 @@
           %a{"data-filter" => ".icons", :href => "#"} Icons
         %li.scrollimation.fade-left.d1
           %a{"data-filter" => ".ui-kits", :href => "#"} UI Kits
-  .container.masonry-wrapper.scrollimation.fade-in
-    #projects-container
-      =render 'projects'        
+    / End portfolio filters
+  / End portfolio header
+  =render 'projects'
