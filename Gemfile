@@ -10,10 +10,16 @@ gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-
-gem 'spring',        group: :development
-gem 'railties',        group: :development
-
 gem 'haml-rails'
-gem "erb2haml" 
+
+group :development do
+  gem 'spring'
+  gem 'railties'
+  gem "erb2haml" 
+end
+
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
