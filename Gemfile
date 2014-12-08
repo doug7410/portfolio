@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
+gem 'md5'
 
 group :development do
   gem 'sqlite3'
