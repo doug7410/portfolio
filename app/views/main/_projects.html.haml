@@ -1,22 +1,8 @@
 .container.masonry-wrapper.scrollimation.fade-in
   #projects-container
-    %article.project-item.ui-kits
-      =image_tag "/assets/placeholder-320x210.jpg", class: "img-responsive.project-image" 
-      / Project thumb
-      .hover-mask
-        %h2.project-title Postit
-        / Project Title
-        %p redit clone
-        / Project Subtitle
-      / ==== Project Preview HTML ====
-      .sr-only.project-description{"data-category" => "Ruby on Rails", "data-client" => "Client", "data-date" => "2014", "data-descr" => "A clone of redit.com built with ruby on rails.", "data-images" => "assets/placeholder-750x430.jpg,assets/placeholder-750x430.jpg", "data-link" => "www.example.com,http://www.google.com"}
-        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-        %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-        %p.text-right
-          %a.btn.btn-meflat.icon-right{:href => "#external-link"}
-            Visit Website
-            %i.fa.fa-arrow-right
+    =render 'projects/postit'
+    =render 'projects/punch_clock'
+    =render 'projects/blackjack'
 /
   \==============================================
   PROJECT PREVIEW MODAL (Do not alter this markup)
@@ -43,6 +29,8 @@
               %p#sdbr-date
               %p#sdbr-client
               %p#sdbr-link
+                %a{:href => "#link", :target => "_blank"}
+              %p#sdbr-github
                 %a{:href => "#link", :target => "_blank"}
               %p#sdbr-descr
             #project-content.col-md-8.col-md-offset-1

@@ -151,6 +151,11 @@ $(document).ready(function() {
 				$(this).find('#sdbr-link').show().find('a').text(extLink[0]).attr('href',extLink[1]);
 			}else{$(this).find('#sdbr-link').hide();}
 			
+			if(elemDataCont.data('github')){
+				var extLink = elemDataCont.data('github').split(',');
+				$(this).find('#sdbr-github').show().find('a').text('view the code on GitHub').attr('href',extLink[0]);
+			}else{$(this).find('#sdbr-github').hide();}
+
 			if(elemDataCont.data('descr')){
 				$(this).find('#sdbr-descr').show().text(elemDataCont.data('descr'))
 			}else{$(this).find('#sdbr-descr').hide();}
