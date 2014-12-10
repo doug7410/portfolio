@@ -108,6 +108,10 @@ a:focus,
 ----- Buttons ------
 --------------------*/
 
+.btn-about{
+    font-family: 'Roboto Slab',serif;
+}
+
 .btn-meflat {
 	border: none;
 	font-family: inherit;

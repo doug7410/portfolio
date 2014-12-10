@@ -1,7 +1,42 @@
-=render 'header'
-=render 'services'
-/ # =render 'featured_product'
-=render 'about'
-=render 'skills'
-=render 'portfolio'
-=render 'contact'
+%header#home.jumbotron
+  .container
+    .row
+      .col-sm-6.text-col
+        %h1 
+          Doug Steinberg
+        %p full stack Ruby on Rails developer
+        %p.text-center
+          =link_to '/about', class: 'btn btn-meflat btn-about scrollto dark-bg icon-left' do
+            %i.fa.fa-arrow-right
+              About Me
+      .col-sm-6
+        .imac-frame
+          %img.img-responsive.img-center{:alt => "", :src => "assets/imac.png"}/
+          .imac-screen.flexslider
+            %ul.slides
+              %li
+                =image_tag('ruby-on-rails.jpg')
+              %li
+                =image_tag('html5_css3_javascript.jpg')  
+              %li
+                =image_tag('code.jpg')
+              %li
+                =image_tag('github.jpg')
+              %li
+                =image_tag('heroku-logo.jpg')    
+:javascript
+  if ($(window).scrollTop()===0){
+    $('#main-nav').removeClass('scrolled');
+  }
+  else{
+    $('#main-nav').addClass('scrolled');    
+  }
+
+  $(window).scroll(function(){
+    if ($(window).scrollTop()===0){
+      $('#main-nav').removeClass('scrolled');
+    }
+    else{
+      $('#main-nav').addClass('scrolled');    
+    }
+  });

@@ -1,4 +1,4 @@
-#main-nav.navbar.navbar-fixed-top
+#main-nav.navbar.navbar-fixed-top{class: ('scrolled' unless @main_page)}
   .container
     .navbar-header
       %button.navbar-toggle{"data-target" => "#site-nav", "data-toggle" => "collapse", :type => "button"}
@@ -9,20 +9,20 @@
       %a.navbar-brand.visible-xs.scrollto{:href => "#home"} Ds
     #site-nav.navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li
-          %a.scrollto{:href => "#services"} What I Do
-        %li
-          %a.scrollto{:href => "#about"} About Me
-        %li
-          %a.scrollto{:href => "#portfolio"} My Works
+        %li{ class: ('active' if action_name == 'about') }
+          =link_to 'About Me', '/about'
+        %li{ class: ('active' if action_name == 'services') }
+          =link_to 'What I Do', '/services'
+        %li{ class: ('active' if action_name == 'portfolio') }
+          =link_to 'My Works', '/projects'
         %li#logo
-          %a.scrollto{:href => "#home"}
+          =link_to root_path do
             %h1
               D
               %span S
         %li
-          %a.scrollto{:href => "#blog"} Blog  
+          =link_to 'Blog', '/blog'
         %li
-          %a.scrollto{:href => "#blog"} Resume 
+          =link_to 'Resume', '/resume'
         %li
-          %a.scrollto{:href => "#contact"} Contact Me 
+          =link_to 'Contact', '/contact'

@@ -1,23 +1,6 @@
 $(document).ready(function() {
 	
-	/*============================================
-	Navigation Functions
-	==============================================*/
-	if ($(window).scrollTop()===0){
-		$('#main-nav').removeClass('scrolled');
-	}
-	else{
-		$('#main-nav').addClass('scrolled');    
-	}
-
-	$(window).scroll(function(){
-		if ($(window).scrollTop()===0){
-			$('#main-nav').removeClass('scrolled');
-		}
-		else{
-			$('#main-nav').addClass('scrolled');    
-		}
-	});
+	
 	
 	/*============================================
 	Header Functions
@@ -64,22 +47,21 @@ $(document).ready(function() {
 	/*============================================
 	Project thumbs - Masonry
 	==============================================*/
-	$(window).load(function(){
+	$(document).ready(function(){
+    $('#projects-container').imagesLoaded(function(){
+      $('#projects-container').css({visibility:'visible'});
 
-		$('#projects-container').css({visibility:'visible'});
+      $('#projects-container').masonry({
+        itemSelector: '.project-item:not(.filtered)',
+        columnWidth:320,
+        isFitWidth: true,
+        isResizable: true,
+        isAnimated: !Modernizr.csstransitions,
+        gutterWidth: 25
+      });
+    });
 
-		$('#projects-container').masonry({
-			itemSelector: '.project-item:not(.filtered)',
-			columnWidth:320,
-			isFitWidth: true,
-			isResizable: true,
-			isAnimated: !Modernizr.csstransitions,
-			gutterWidth: 25
-		});
-
-		scrollSpyRefresh();
-		waypointsRefresh();
-	});
+  });
 
 	/*============================================
 	Filter Projects
