@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>BLOG_NAME</title>
+ <link href="YOUR_URL/atom.xml" rel="self"/>
+ <link href="YOUR_URL"/>
+ <updated>2014-12-11T19:58:11+00:00</updated>
+ <id>BLOG_URL</id>
+ <author>
+   <name>BLOG_NAME</name>
+ </author>
+
+ 
+ <entry>
+   <title>Database Transaction with mySQL and PHP</title>
+   <link href="YOUR_URL/mysql-transactions-with-php.html"/>
+   <updated>2014-05-06T22:45:21Z</updated>
+   <id>BLOG_URL/mysql-transactions-with-php</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;images/Code-Works.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;php&lt;/p&gt;
+
+&lt;p&gt;I fellow student from &lt;a href=&quot;http://www.oreillyschool.com&quot;&gt;O&#39;Reilly School Of Technology&lt;/a&gt; asked me about using transactions in SQL to batch together multiple table updates. It turns out this is pretty easy. If you&#39;re reading this you probably know why this is a good idea, but I&#39;ll briefly explain why just in case you&#39;re not sure.&lt;/p&gt;
+
+&lt;p&gt;The most important thing when dealing with relational databases is to keep all the data, in all the tables consistent with your database rules. For example, if you have two tables where one depends on data from the other you wouldn&#39;t want to insert data into one if there was a problem with inserting data into the other. Below are two very simple tables.&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h3&gt;widget_customers&lt;/h3&gt;
+
+&lt;table class=&quot;table&quot;&gt;
+    
+        &lt;tr&gt;
+            &lt;th&gt;customerID&lt;/th&gt;
+            &lt;th&gt;first_name&lt;/th&gt;
+            &lt;th&gt;last_name&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;John&lt;/td&gt;
+            &lt;td&gt;Smith&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;Walter&lt;/td&gt;
+            &lt;td&gt;White&lt;/td&gt;
+        &lt;/tr&gt;
+    
+&lt;/table&gt;
+
+
+&lt;h3&gt;widget_orders&lt;/h3&gt;
+
+&lt;table class=&quot;table&quot;&gt;
+    
+        &lt;tr&gt;
+            &lt;th&gt;orderID&lt;/th&gt;
+            &lt;th&gt;widgetID&lt;/th&gt;
+            &lt;th&gt;customerID&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+        &lt;/tr&gt;
+    
+&lt;/table&gt;
+
+
+&lt;p&gt;Lets assume we need to make a script that adds to both of these tables at the same time. Now let&#39;s assume something goes wrong while inserting data into the first one, but not the second one.  We could end up with something like what you see below:&lt;/p&gt;
+
+&lt;h3&gt;widget_customers&lt;/h3&gt;
+
+&lt;table class=&quot;table&quot;&gt;
+    
+        &lt;tr&gt;
+            &lt;th&gt;customerID&lt;/th&gt;
+            &lt;th&gt;first_name&lt;/th&gt;
+            &lt;th&gt;last_name&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;John&lt;/td&gt;
+            &lt;td&gt;Smith&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;Walter&lt;/td&gt;
+            &lt;td&gt;White&lt;/td&gt;
+        &lt;/tr&gt;
+    
+&lt;/table&gt;
+
+
+&lt;h3&gt;widget_orders&lt;/h3&gt;
+
+&lt;table class=&quot;table&quot;&gt;
+    
+        &lt;tr&gt;
+            &lt;th&gt;orderID&lt;/th&gt;
+            &lt;th&gt;widgetID&lt;/th&gt;
+            &lt;th&gt;customerID&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    
+&lt;/table&gt;
+
+
+&lt;p&gt;So here we attempted to inserted a new &lt;strong&gt;widget_customer&lt;/strong&gt; and a new &lt;strong&gt;widget_order&lt;/strong&gt;,but for some reason the customer insert query failed! That&#39;s why we have a new orderID (3) with a missing customerID. To make sure this never happens mySQL has transactions.&lt;/p&gt;
+
+&lt;p&gt;With transactions you can check that everything went right with both inserts before you &lt;strong&gt;COMMIT&lt;/strong&gt; them to the database.&lt;/p&gt;
+
+&lt;p&gt;Before you can even use transaction, you need to set your database tables  to use a MySQL engine that supports &lt;b&gt;transactions&lt;/b&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can do this in your mysql command line like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mysql&amp;gt; alter table widget_customers type=InnoDB;
+mysql&amp;gt; alter table widget_orders type=InnoDB;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you&#39;re ready to take advantage of transactions.&lt;/p&gt;
+
+&lt;p&gt;First you set a flag to true and begin the transaction. You use this to check that each SQL command is successful&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;PHP&quot;&gt;$success = true;  //flag to determine success of transaction
+
+//start transaction
+$command = &quot;SET AUTOCOMMIT=0&quot;;     // this turn off AUTOCOMMIT 
+$result = $db-&amp;gt;query($command); // in mySQL and lets you insert data without it being perminate 
+$command = &quot;BEGIN&quot;; // this begins the transaction
+$result = $db-&amp;gt;query($command);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you run your first query&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;PHP&quot;&gt;$command = &quot;INSERT into widget_customers (customerID, first_name, last_name) VALUES (&#39;&#39;,&#39;Jessie&#39;,&#39;James&#39;)&quot;;
+$result = $db-&amp;gt;query($command);
+if(!$result){
+   $success = false;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then your second query&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;PHP&quot;&gt;$command = &quot;INSERT into widget_orders (orderID, widgetID, customerID)
+VALUES (&#39;&#39;, &#39;1&#39;, &#39;3&#39;)&quot;;
+$result = $db-&amp;gt;query($command);
+if(!$result){
+   $success = false;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now if either of those queries didn&#39;t work, &lt;code&gt;$success&lt;/code&gt; will be &lt;strong&gt;false&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the last step we either commit our queries to the database or roll them back.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;PHP&quot;&gt;if ($success) {
+    $command = &quot;COMMIT&quot;;
+    $result = $db-&amp;gt;query($command);
+    echo &quot;A new customer and order has been entered!&quot;;
+}else {
+    $command = &quot;ROLLBACK&quot;;
+    $result = $db-&amp;gt;query($command);
+    echo &quot;Sorry, the update failed.&quot;;
+}
+
+$command = &quot;SET AUTOCOMMIT=1&quot;;  //return to autocommit
+$result = $db-&amp;gt;query($command);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So what&#39;s happening here?&lt;/p&gt;
+
+&lt;p&gt;First we check our &lt;code&gt;$success flag&lt;/code&gt;. If &lt;code&gt;$success&lt;/code&gt; is &lt;strong&gt;true&lt;/strong&gt; we run the mySQL command &lt;code&gt;COMMIT&lt;/code&gt;. At this point all the data we inserted will be perminate. In other words, you wount be able to undo the changes. (you can delete the data you don&#39;t want, but that&#39;s not the point) .&lt;/p&gt;
+
+&lt;p&gt;If any of our queries failed &lt;code&gt;$success&lt;/code&gt; will equal &lt;strong&gt;false&lt;/strong&gt;. We&#39;ll then run the &lt;code&gt;ROLLBACK&lt;/code&gt; command and all the tables will go back to how they were before the transaction started.&lt;/p&gt;
+
+&lt;p&gt;The last command &lt;code&gt;SET AUTOCOMMIT=1&lt;/code&gt; just sets the database back to how it was before the transaction started (with transactions disabled).&lt;/p&gt;
+
+&lt;p&gt;So I hope all of that made sense, please let me know if you have any questions or comments. Thanks!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>
