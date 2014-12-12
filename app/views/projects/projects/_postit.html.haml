@@ -1,4 +1,4 @@
-%article.project-item.ui-kits
+%article.project-item.ruby-on-rails
   =image_tag "/assets/images/projects/postit-small.jpg", class: "img-responsive.project-image" 
   / Project thumb
   .hover-mask
@@ -8,9 +8,30 @@
     / Project Subtitle
   / ==== Project Preview HTML ====
   .sr-only.project-description{"data-category" => "Ruby on Rails", "data-date" => "2014", "data-descr" => "A clone of redit.com built with ruby on rails.", "data-images" => "/assets/images/projects/postit1.jpg, /assets/images/projects/postit2.jpg, /assets/images/projects/postit3.jpg, /assets/images/projects/postit4.jpg", "data-link" => "doug-postit.herokuapp.com, http://doug-postit.herokuapp.com", "data-github" => "https://github.com/doug7410/postit-app"}
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
+    %p 
+      This is a redit clone build with Tealead Academy on their second course 
+      =link_to 'Rapid Prototyping With Runy On Rails', 'http://www.gotealeaf.com/curriculum#!rails'
+      The basic functionality of the app lets users post links, give the link a title, add a description, leave comments on posts, vote on posts. This app taught me a lot about Rails and RESTful resources. I learned a lot about Rails and the Ruby code under it's cover which is responsible for the "Rails Maigic!". 
+    %p Features of this app:
+    %ul 
+      %li Custom authentication system 
+      %li Built with Ruby 2 and Rails 4
+      %li Create and edit posts
+      %li Comment and vote on posts
+      %li Tracks who created every comment, vote, and post
+      %li Organize posts by category
+      %li View and edit user profiles
+      %li Uses roles to allow admins to edit all posts
+      %li Uses ajax to vote
+      %li Slugs as URLs
+      %li Display time based on user specified time zone
+      %li Deployed to Heroku
+      %li Uses gem to extract common logic
+      %li 2-factor authentication
+
+    %p I also built a feature onto the app which was not included in the Tealeaf Course. It allows users to add an image to their post. It uses a gem called 'metainspecotor' to scrape images from the link they are posting. It also heavily relies in rails flavlored AJAX. I wrote a blog post about this feature at this link. 
+    =link_to 'How I Added Images to My Postit App With AJAX and MetaInspector', 'http://doug7410.github.io/blog/2014/08/04/add-image-to-post-with-ajax-and-metainspector'
+
     %p.text-right
       =link_to 'http://doug-postit.herokuapp.com' do
         %button.btn.btn-meflat.icon-right
