@@ -1069,7 +1069,7 @@ a:focus,
       margin: 0 0 40px;
     }
     
-    .bl_form input{
+    .bl_form input{ 
       padding-top: 15px;
       background: rgba(255,255,255,0.10);
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);

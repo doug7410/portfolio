@@ -6,20 +6,19 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         %br/
         Aenean purus felis, condimentum et tempor in, commodo id nibh. Fusce a lacus arcu.
-    %form#contact-form.bl_form.text-center{:action => "contact.php", :method => "post", :novalidate => ""}
+    = form_for @inquiry, html: {id: "contact-form", class: "text-center bl_form" } do |f|
       %span.field-wrap.scrollimation.fade-right
         %label.control-label{:for => "contact-name"} Name
-        %input#contact-name.label_better.requiredField{"data-error-empty" => "*Enter your name", "data-new-placeholder" => "Name", :name => "contactName", :placeholder => "Name", :type => "text"}/
+        =f.text_field :name, 'id' => "contact-name", 'class' => "label_better requiredField", "data-error-empty" => "*Enter your name", "data-new-placeholder" => "Name", :placeholder => "Name"
       %span.field-wrap.scrollimation.fade-in
         %label.control-label{:for => "contact-mail"} Email
-        %input#contact-mail.label_better.requiredField{"data-error-empty" => "*Enter your email", "data-error-invalid" => "x Invalid email address", "data-new-placeholder" => "Email Address", :name => "email", :placeholder => "Email Address", :type => "email"}/
+        =f.email_field :email, 'id' => "contact-name", 'class' => "label_better requiredField", "data-error-empty" => "*Enter your email", "data-error-invalid" => "x Invalid email address", "data-new-placeholder" => "Email Address", :placeholder => "Email Address"
       %br  
       %span.field-wrap.scrollimation.fade-left
         %label.control-label{:for => "contact-message"} Message
-        %textarea#contact-message.requiredField{"data-error-empty" => "*Enter your message", "data-new-placeholder" => "Message", :name => "comments", :placeholder => "Message", :rows => "1"}
+        =f.text_area :message, 'id' => "contact-message", 'class' => "requiredField", "data-error-empty" => "*Enter your message", "data-new-placeholder" => "Message", :placeholder => "Message"
       %p.text-center
         %button.btn.btn-meflat.icon-left{"data-error-message" => "Error!", "data-ok-message" => "Message Sent", "data-sending-message" => "Sending...", :name => "submit", :type => "submit"}
           %i.fa.fa-paper-plane>
           Send Message
       %input#submitted{:name => "submitted", :type => "hidden", :value => "true"}/
-/
