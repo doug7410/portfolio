@@ -13,9 +13,10 @@
       %span.field-wrap.scrollimation.fade-in
         %label.control-label{:for => "contact-mail"} Email
         %input#contact-mail.label_better.requiredField{"data-error-empty" => "*Enter your email", "data-error-invalid" => "x Invalid email address", "data-new-placeholder" => "Email Address", :name => "email", :placeholder => "Email Address", :type => "email"}/
+      %br  
       %span.field-wrap.scrollimation.fade-left
         %label.control-label{:for => "contact-message"} Message
-        %textarea#contact-message.label_better.requiredField{"data-error-empty" => "*Enter your message", "data-new-placeholder" => "Message", :name => "comments", :placeholder => "Message", :rows => "1"}
+        %textarea#contact-message.requiredField{"data-error-empty" => "*Enter your message", "data-new-placeholder" => "Message", :name => "comments", :placeholder => "Message", :rows => "1"}
       %p.text-center
         %button.btn.btn-meflat.icon-left{"data-error-message" => "Error!", "data-ok-message" => "Message Sent", "data-sending-message" => "Sending...", :name => "submit", :type => "submit"}
           %i.fa.fa-paper-plane>
