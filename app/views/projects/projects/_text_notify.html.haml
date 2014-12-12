@@ -1,16 +1,40 @@
-%article.project-item.ui-kits
+%article.project-item.ruby-on-rails
   =image_tag "/assets/images/projects/text-small.jpg", class: "img-responsive.project-image" 
   / Project thumb
   .hover-mask
-    %h2.project-title Text Notify
+    %h2.project-title Text Notify(in progress)
     / Project Title
     %p SMS Texting app for business to comunicate with their customers
     / Project Subtitle
   / ==== Project Preview HTML ====
   .sr-only.project-description{"data-category" => "Ruby on Rails", "data-date" => "2014", "data-descr" => "A simple app for keeping track of time spent working on jobs and tasks.", "data-images" => "/assets/images/projects/text1.jpg, /assets/images/projects/text2.jpg, /assets/images/projects/text3.jpg, /assets/images/projects/text4.jpg, /assets/images/projects/text5.jpg", "data-link" => "text-notify.herokuapp.com, http://text-notify.herokuapp.com", "data-github" => "https://github.com/doug7410/text_notify"}
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
+    %p This is an app I'm currently working on. It utilized the Twilio API to send SMS messages. There are 2 main use cases for it as of now. 
+    %ol
+      %li A business can use it to notify their customers when an item is ready to be picked up
+      %li A business can collect subscribers and use it to send a mass text to all the subscribers with a special promotion or marketing message.
+
+    %p There are several other things it could be used for, and even niche markets that can be targeted. Some of the interesing features are:
+
+    %ul
+      %li Bult with TDD using Rspec and Capybara
+      %li 
+        Integrates with the Twilio API 
+        =link_to 'twilio.com', 'http://www.twilio.com'
+      %li Devise for authenticaion
+      %li RESTful routes
+      %li uses Sidekiq and Redis for background sending of text
+      %li uses a deployment pipeline with Unicorn, and Paratrooper
+      %li uses HAML in the view templates
+
+    %p 
+      One interesting piece of code is the create action for the notifications controller. It handles several edge cases,and I exatracted most of the messy code for better readability. 
+
+      <script src="https://gist.github.com/doug7410/7997f41a0326d4b3bd9a.js"></script>
+
+    %p 
+      the full file can be seen here
+      =link_to 'here', 'https://github.com/doug7410/text_notify/blob/master/app/controllers/notifications_controller.rb'
+
     %p.text-right
       =link_to 'http://text-notify.herokuapp.com' do
         %button.btn.btn-meflat.icon-right

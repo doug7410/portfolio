@@ -1,4 +1,4 @@
-%article.project-item.ui-kits
+%article.project-item.ruby-on-rails
   =image_tag "/assets/images/projects/myflix-small.jpg", class: "img-responsive.project-image" 
   / Project thumb
   .hover-mask
@@ -8,9 +8,34 @@
     / Project Subtitle
   / ==== Project Preview HTML ====
   .sr-only.project-description{"data-category" => "Ruby on Rails, TDD", "data-date" => "2014", "data-descr" => "Clone of Netflix.com built with Ruby on Rails and Test Driven Design durring Tealeaf Academy's 'Build Robust and Production Quality Applications' course", "data-images" => "/assets/images/projects/myflix1.jpg,/assets/images/projects/myflix2.jpg, /assets/images/projects/myflix3.jpg, /assets/images/projects/myflix4.jpg, /assets/images/projects/myflix5.jpg, /assets/images/projects/myflix6.jpg, /assets/images/projects/myflix7.jpg, /assets/images/projects/myflix8.jpg, /assets/images/projects/myflix9.jpg, /assets/images/projects/myflix10.jpg, /assets/images/projects/myflix11.jpg", "data-link" => "myflix-doug.herokuapp.com, http://myflix-doug.herokuapp.com", "data-github" => "https://github.com/doug7410/myflix"}
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
+    %p
+      This app was built with Tealeaf Academy's third course 
+      =link_to '"Build Robust and Production Quality Applications"', 'http://www.gotealeaf.com/curriculum#!production-apps'
+      It's a clone of netflix.com. It doesn't stream video like Netflix, but it focusus more on software design and some advance development topics. The first thing I learned while building this app was Test Driven Development. After learning the basics of TDD, I can see how it provides an exelent environment for developing robust, high quality code.
+
+    %p Some interesting featrues and things I learned while building this:
+
+    %ul
+      %li Team colaboration with GitHub Flow
+      %li Testing with Rspec and Capybara
+      %li Complex registration workflow, service objects
+      %li Users can invite friends to join. The friends are send a link with a temporary token which links them back to the inviter
+      %li Integration with the Stripe API for billing
+      %li Privileges and access control
+      %li Seeding data
+      %li Sending emails
+      %li Use random tokens
+      %li Email service providers
+      %li Complex forms
+      %li Self referential associations
+      %li Organize cross cutting functionality with Concerns
+      %li Background jobs
+      %li Amazon S3
+      %li Uploading files
+      %li Skinny controller, fat model
+      %li Wrapping APIs
+      %li Beyond MVC 
+
     %p.text-right
       =link_to 'http://myflix-doug.herokuapp.com' do
         %button.btn.btn-meflat.icon-right

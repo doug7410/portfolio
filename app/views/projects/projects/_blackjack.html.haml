@@ -1,4 +1,4 @@
-%article.project-item.ui-kits
+%article.project-item.ruby-sinatra
   =image_tag "/assets/images/projects/blackjack-small.jpg", class: "img-responsive.project-image" 
   / Project thumb
   .hover-mask
@@ -8,9 +8,25 @@
     / Project Subtitle
   / ==== Project Preview HTML ====
   .sr-only.project-description{"data-category" => "Ruby, Sinatra", "data-date" => "2014", "data-descr" => "Web based Blackjack game built on the Sinatra framework", "data-images" => "/assets/images/projects/blackjack1.jpg, /assets/images/projects/blackjack2.jpg, /assets/images/projects/blackjack3.jpg", "data-link" => "dougs-blackjack.herokuapp.com, http://dougs-blackjack.herokuapp.com", "data-github" => "https://github.com/doug7410/tl-blackjack-webapp"}
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-    %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
+    %p 
+      This is app was build durring Tealeaf Academy's first course 
+      =link_to 'Introduction to Ruby and Web Development', 'http://www.gotealeaf.com/curriculum#!ruby'
+      It was built on the Sinatra Framework. There is no database, and cookies are used to persist data. I also incorporated some jQuery which was not part of the course and spruced up the graphic design from the default twitter bootstrap styles.
+    %p Here are some featrues and things I learned while building this app:  
+
+    %ul 
+      %li HTTP
+      %li Request/response life cycle
+      %li URL mapping and routing requests
+      %li Static/dynamic web pages
+      %li Erb
+      %li Processing Forms
+      %li Passing in parameters
+      %li Response: render, redirect, status codes
+      %li Sessions
+      %li Deploying to Heroku
+      %li Debugging web applications
+      %li Using Sinatra
     %p.text-right
       =link_to 'http://dougs-blackjack.herokuapp.com' do
         %button.btn.btn-meflat.icon-right
