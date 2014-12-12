@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
+gem 'active_attr'
 
 group :development do
   gem 'sqlite3'
@@ -19,6 +20,7 @@ group :development do
   gem 'pry'
   gem 'pry-nav'
   gem "erb2haml" 
+  gem "letter_opener"
 end
 
 
