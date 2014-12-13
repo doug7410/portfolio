@@ -1409,3 +1409,12 @@ a:focus,
 		min-height:660px;
 	}
 }
+
+
+#sdbr-github:before {
+  display: inline-block;
+  width:20px;
+  content:"\f092";
+  font-family:"Fontawesome";
+  margin-right:10px;
+}
