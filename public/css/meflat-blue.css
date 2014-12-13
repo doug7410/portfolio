@@ -67,7 +67,7 @@ a:focus,
 
 .color-bg a:hover,
 .color-bg a:focus {
-  color:#fff;
+  /*color:#fff;*/
   text-decoration: none;
 }
 
