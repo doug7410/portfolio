@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+#sdbr-github:before {
+  display: inline-block;
+  width:20px;
+  content:"\f092";
+  font-family:"Fontawesome";
+  margin-right:10px;
+}
+
+
+#project-content a, #project-sidebar a {
+    color: #38a5db !important;
+}

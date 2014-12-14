@@ -61,13 +61,13 @@ a:focus,
 }
 
 .color-bg a{
-	color:#fff;
+	/*color:#fff;*/
 	text-decoration: underline;
 }
 
 .color-bg a:hover,
 .color-bg a:focus {
-  color:#fff;
+  /*color:#fff;*/
   text-decoration: none;
 }
 
@@ -1408,4 +1408,13 @@ a:focus,
 	.jumbotron {
 		min-height:660px;
 	}
+}
+
+
+#sdbr-github:before {
+  display: inline-block;
+  width:20px;
+  content:"\f092";
+  font-family:"Fontawesome";
+  margin-right:10px;
 }

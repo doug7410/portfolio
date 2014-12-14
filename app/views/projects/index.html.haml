@@ -3,9 +3,7 @@
     %header.section-header.text-center
       %h1.scrollimation.scale-in My Works
       %p
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        %br/
-        Aenean purus felis, condimentum et tempor in, commodo id nibh. Fusce a lacus arcu.
+        These are some of the projects I've worked on over the years.
     / ==== Portfolio Filters ====
     #filter-works
       %ul
@@ -17,10 +15,14 @@
           %a{"data-filter" => ".ruby-sinatra", :href => "#"} Ruby/ Sinatra
         %li.scrollimation.fade-left.d1
           %a{"data-filter" => ".php", :href => "#"} PHP
+        %li.scrollimation.fade-left.d1
+          %a{"data-filter" => ".wordpress", :href => "#"} Wordpress  
     / End portfolio filters
   / End portfolio header
 
   =render 'portfolio'
+
+
 
 
 
