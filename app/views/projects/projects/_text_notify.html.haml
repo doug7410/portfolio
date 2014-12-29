@@ -2,12 +2,12 @@
   =image_tag "/assets/images/projects/text-small.jpg", class: "img-responsive.project-image" 
   / Project thumb
   .hover-mask
-    %h2.project-title Text Notify(in progress)
+    %h2.project-title PijonTxt
     / Project Title
-    %p SMS Texting app for business to comunicate with their customers
+    %p SMS Texting app for business to comunicate with and market to their customers
     / Project Subtitle
   / ==== Project Preview HTML ====
-  .sr-only.project-description{"data-category" => "Ruby on Rails", "data-date" => "2014", "data-descr" => "A simple app for keeping track of time spent working on jobs and tasks.", "data-images" => "/assets/images/projects/text1.jpg, /assets/images/projects/text2.jpg, /assets/images/projects/text3.jpg, /assets/images/projects/text4.jpg, /assets/images/projects/text5.jpg", "data-link" => "text-notify.herokuapp.com, http://text-notify.herokuapp.com", "data-github" => "https://github.com/doug7410/text_notify"}
+  .sr-only.project-description{"data-category" => "Ruby on Rails", "data-date" => "2014", "data-descr" => "A simple app for keeping track of time spent working on jobs and tasks.", "data-images" => "/assets/images/projects/text1.jpg, /assets/images/projects/text2.jpg, /assets/images/projects/text3.jpg, /assets/images/projects/text4.jpg, /assets/images/projects/text5.jpg", "data-link" => "www.pijontxt.com, http://www.pijontxt.com", "data-github" => "https://github.com/doug7410/text_notify"}
     %p This is an app I'm currently working on. It utilized the Twilio API to send SMS messages. There are 2 main use cases for it as of now. 
     %ol
       %li business can use it to notify their customers when an item is ready to be picked up
@@ -24,6 +24,12 @@
       %li uses Sidekiq and Redis for background sending of text
       %li uses a deployment pipeline with Unicorn, and Paratrooper
       %li uses HAML in the view templates
+      %li queue functionality
+      %li custmers can subscribe to a group by texting the group name to the apps phone number
+      %li business owners create unique group names for collecting subscribers
+      %li business owners set up default messages
+      %li uses the Mailgun API for emails
+      %li can send a "group text", which is really many individual text
 
     %p 
       One interesting piece of code is the create action for the notifications controller. It handles several edge cases,and I exatracted most of the messy code for better readability. 
